@@ -6,7 +6,7 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 
 //Todo replace google fonts dev with respective fonts modules
 import * as Font from 'expo-font';
-import { useFonts, Poppins_400Regular, Poppins_700Bold} from "@expo-google-fonts/dev";
+import { useFonts, Poppins_400Regular, Poppins_700Bold, Inter_400Regular} from "@expo-google-fonts/dev";
 
 import HomeScreen from "./screens/HomeScreen";
 import StatsScreen from "./screens/StatsScreen";

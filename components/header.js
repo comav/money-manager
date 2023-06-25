@@ -30,7 +30,8 @@ const styles = StyleSheet.create({
   },
   textLogo: {
     display: "flex",
-    flexDirection: "row"
+    flexDirection: "row",
+    textAlign: "center",
   },
   avatar: {
     width: 51,
