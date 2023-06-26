@@ -13,6 +13,9 @@ import StatsScreen from "./screens/StatsScreen";
 import AccountsScreen from "./screens/AccountsScreen";
 import AppLoading from "expo-app-loading";
 
+import {store} from "./redux/store";
+import {Provider} from "react-redux";
+
 const Tab = createMaterialBottomTabNavigator();
 
 export default function App() {
@@ -26,28 +29,30 @@ export default function App() {
     return <AppLoading />;
   } else {
     return (
-      <NavigationContainer>
-        <Tab.Navigator initialRouteName={"Home"}>
-          <Tab.Screen
-            name={"Home"}
-            component={HomeScreen}
-            options={{
-              tabBarIcon: ({color}) => (<MaterialCommunityIcons name={"home"} color={color} size={26}/>),
-            }}/>
-          <Tab.Screen
-            name={"Stats"}
-            component={StatsScreen}
-            options={{
-              tabBarIcon: ({color}) => (<MaterialCommunityIcons name={"poll"} color={color} size={26}/>),
-            }}/>
-          <Tab.Screen
-            name={"Accounts"}
-            component={AccountsScreen}
-            options={{
-              tabBarIcon: ({color}) => (<MaterialCommunityIcons name={"credit-card"} color={color} size={26}/>),
-            }}/>
-        </Tab.Navigator>
-      </NavigationContainer>
+      <Provider store={store}>
+        <NavigationContainer>
+          <Tab.Navigator initialRouteName={"Home"}>
+            <Tab.Screen
+              name={"Home"}
+              component={HomeScreen}
+              options={{
+                tabBarIcon: ({color}) => (<MaterialCommunityIcons name={"home"} color={color} size={26}/>),
+              }}/>
+            <Tab.Screen
+              name={"Stats"}
+              component={StatsScreen}
+              options={{
+                tabBarIcon: ({color}) => (<MaterialCommunityIcons name={"poll"} color={color} size={26}/>),
+              }}/>
+            <Tab.Screen
+              name={"Accounts"}
+              component={AccountsScreen}
+              options={{
+                tabBarIcon: ({color}) => (<MaterialCommunityIcons name={"credit-card"} color={color} size={26}/>),
+              }}/>
+          </Tab.Navigator>
+        </NavigationContainer>
+      </Provider>
     );
   }
 }
